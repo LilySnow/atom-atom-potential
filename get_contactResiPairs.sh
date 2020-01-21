@@ -26,8 +26,8 @@ outFL2=$outputDIR/$FLname.resiContact
 
 #-- get the contact residue list
 pdb_segxchain.py $decoyFL > $outputDIR/$FLname.new
-/home/lixue/tools/contact-chainID_allAtoms $outputDIR/$FLname.new $anyAtomDistThr  > $outFL1
-/home/lixue/tools/removeAtomFromContactFL $outFL1 > $outFL2
+contact-chainID_allAtoms $outputDIR/$FLname.new $anyAtomDistThr  > $outFL1
+removeAtomFromContactFL $outFL1 > $outFL2
 
 #-- filter out water from the residue-residue contact file: HOH, WAT
 egrep -v 'HOH' $outFL2 | egrep -v 'WAT' > $outFL2.tmp
